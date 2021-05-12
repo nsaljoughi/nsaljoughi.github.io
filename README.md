@@ -1,1 +1,1 @@
-A lightwieght website to display personal information
+A lightwieght website to display personal information.
