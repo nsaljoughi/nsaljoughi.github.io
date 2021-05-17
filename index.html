@@ -6,24 +6,24 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  
     
-    <body style='margin : 0px; overflow: hidden;'>
+    <body style="margin : 0px; overflow: hidden;">
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
-        <a-marker type='pattern' value='custom' url='https://raw.githubusercontent.com/nsaljoughi/nsaljoughi.github.io/main/pattern-marker1.patt' patternRatio='0.5'>
-        	<a-box position='0 0.5 0' material='opacity: 0.75; color: yellow;'></a-box>
-            	<a-entity position="1.5 0.5 0.55" scale="3 3 3" text="value: HELLO;color:black;"></a-entity>
-        </a-marker>  
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
             
         <!-- handle matrix marker -->
-	<a-marker type='barcode' value='5'>
-		<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:pink;'>
-			<a-torus-knot radius='0.26' rotation='0 45 0' radius-tubular='0.05'
-			animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
-			</a-torus-knot>
-		</a-box>
-	</a-marker>
+        <a-marker type="barcode" size="" value="5">
+          <a-box position="0 0.5 0" material="opacity: 0.75; color: yellow;">
+            	<a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1;color:black;"></a-entity>
+          </a-box>
+          <a-box position="0 0.5 2" material="opacity: 0.75; color: green;">
+            	<a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #2;color:black;"></a-entity>
+          </a-box>
+          <a-box position="0 0.5 -2" material="opacity: 0.75; color: blue;">
+            	<a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #3;color:black;"></a-entity>
+          </a-box>
+        </a-marker>
         
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
