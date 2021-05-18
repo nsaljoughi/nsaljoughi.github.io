@@ -25,6 +25,11 @@
           </a-box>
         </a-marker>
         
+        <a-marker type="barcode" value="3">
+            <a-box position="0 0 0" material="opacity: 0.75; color: red;">
+            	<a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+            </a-box>
+        </a-marker>
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
         </a-scene>
