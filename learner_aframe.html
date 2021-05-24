@@ -1,0 +1,119 @@
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gftruj/AR.js@enable-custom-area-markers-build/aframe/build/aframe-ar.js"></script> 
+<script>
+ 
+AFRAME.registerComponent('ar-area-learner', {
+  schema: {
+    patternUrl: {
+      default: ""
+    },
+    patternList: {
+      default: "hiro"
+    }
+  },
+  updateMarkerOptions: function(_patternUrl, _patternList) {
+    let options = {
+      trackingBackend: 'artoolkit',
+      markersControlsParameters: []
+    }
+    _patternList.split(',').forEach( patternName => {
+      options.markersControlsParameters.push({
+        type: 'pattern',
+        patternUrl: _patternUrl + '/' + patternName.trim() + '.patt' 
+      })
+    })
+    return options
+  },
+  init: function() {
+    // get options from the schema
+    this.markerOptions = this.updateMarkerOptions(this.data.patternUrl, this.data.patternList)
+    // reference the arjs system    
+    var arjsSystem = this.el.sceneEl.systems.arjs || this.el.sceneEl.systems.artoolkit
+    // helper flag
+    this.arSessionStarted = false
+    this.multiMarkerLearning = null
+    
+    // wait until the session is started
+    var intervalID = setInterval(e => {
+      if (!arjsSystem._arSession) {
+        console.log('noarjs')
+        return
+      }
+      clearInterval(intervalID)
+      this.arSessionStarted = true
+      this.arToolkitCtx = arjsSystem._arSession.arContext
+      this.startLearning()
+    }, 500)
+    
+  setTimeout(e=> {
+    this.saveResults()
+    //this.el.removeAttribute('ar-area-learner')
+  }, 5000)
+    
+  },
+  tick: function() {
+    if (!this.multiMarkerLearning || !this.multiMarkerLearning.enabled) {
+      return
+    }
+    this.multiMarkerLearning.computeResult()
+    this.multiMarkerLearning.subMarkersControls.forEach(markerControl => {
+      if (!markerControl.object3d)
+        return
+      markerControl.object3d.updateMatrixWorld(true)
+      markerControl.object3d.matrixWorld.decompose(this.el.object3D.position, this.el.object3D.quaternion, this.el.object3D.scale)
+    })
+  },
+  startLearning: function() {
+    // if there was a previous learning object - get rid of it
+    this.remove(); // for now its sufficient
+    
+    let subMarkersControls = []
+    this.markerOptions.markersControlsParameters.forEach((markerControlsParameters) => {
+
+      // create a markerRoot
+      var markerRoot = new THREE.Group()
+      this.el.sceneEl.object3D.add(markerRoot)
+      
+      // create markerControls for our markerRoot
+      var markerControls = new THREEx.ArMarkerControls(this.arToolkitCtx, markerRoot, markerControlsParameters)
+
+      // add an helper to visuable each sub-marker
+      var markerHelper = new THREEx.ArMarkerHelper(markerControls)
+      markerControls.object3d.add( markerHelper.object3d )			
+
+      // store it in the parameters
+      subMarkersControls.push(markerControls)
+    })
+    this.multiMarkerLearning = new THREEx.ArMultiMakersLearning(this.arToolkitCtx, subMarkersControls)
+    console.log(this.multiMarkerLearning)
+    
+    this.multiMarkerLearning.resetStats()
+    this.multiMarkerLearning.enabled = true
+  },
+  saveResults: function() {
+    var jsonString = this.multiMarkerLearning.toJSON()
+    localStorage.setItem('ARjsMultiMarkerFile', jsonString);	
+    return jsonString
+  },
+  stopLearning: function() {
+    this.multiMarkerLearning.enabled = false
+  },
+  remove: function() {
+    if (this.multiMarkerLearning) {
+      this.multiMarkerLearning.subMarkersControls.forEach(markerControl => {
+        markerControl.object3d.parent.remove(markerControl.object3d)
+      })
+      delete this.multiMarkerLearning
+      this.multiMarkerLearning = null
+    }
+  }
+})
+</script>
+<body>
+
+<a-scene arjs='sourceType: webcam;'>
+      <a-entity ar-area-learner="patternList: celtich, celticu, likeaboss"></a-entity>
+      <a-entity camera></a-entity>
+</a-scene>
+
+</body>
