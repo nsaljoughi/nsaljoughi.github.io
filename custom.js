@@ -6626,6 +6626,8 @@ ARjs.Anchor = function(arSession, markerParameters){
 			ARjs.MarkersAreaUtils.storeMarkersAreaFileFromResolution(arContext.parameters.trackingBackend, resolutionW, resolutionH)
 		}
 
+
+/*
 		// if there is no ARjsMultiMarkerFile, build a default one
 		if( localStorage.getItem('ARjsMultiMarkerFile') === null ){
 			ARjs.MarkersAreaUtils.storeDefaultMultiMarkerFile(arContext.parameters.trackingBackend)
@@ -6634,6 +6636,9 @@ ARjs.Anchor = function(arSession, markerParameters){
 		// get multiMarkerFile from localStorage
 		console.assert( localStorage.getItem('ARjsMultiMarkerFile') !== null )
 		var multiMarkerFile = localStorage.getItem('ARjsMultiMarkerFile')
+*/
+        var multiMarkerFile = localStorage.getItem(markerParameters.markerName + 'MarkerFile')
+
 
 		// set controlledObject depending on changeMatrixMode
 		if( markerParameters.changeMatrixMode === 'modelViewMatrix' ){
@@ -8419,6 +8424,9 @@ AFRAME.registerComponent('arjs-anchor', {
 			markerParameters.smoothCount = _this.data.smoothCount;
 			markerParameters.smoothTolerance = _this.data.smoothTolerance;
 			markerParameters.smoothThreshold = _this.data.smoothThreshold;
+            markerParameters.markerName = _this.el.id;
+            console.log('Hey this is the marker');
+            console.log(_this.el.id);
 
 			//////////////////////////////////////////////////////////////////////////////
 			//		create arAnchor
