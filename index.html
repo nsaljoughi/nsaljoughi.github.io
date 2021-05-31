@@ -183,18 +183,22 @@
 	}
 	localStorage.setItem("oneMarkerFile", JSON.stringify(oneMarker));
 	localStorage.setItem("twoMarkerFile", JSON.stringify(twoMarker));
+    localStorage.setItem("threeMarkerFile", JSON.stringify(threeMarker));
     </script>
   </head>  
   <body>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; areaLearnerUrl: learner.html'>
-		  <a-marker preset="area" id="one" url="markers/hiro.patt, markers/kanji.patt, markers/pattern-marker.patt">
+      <a-marker preset="area" id="one" url="markers/hiro.patt, markers/kanji.patt, markers/pattern-marker.patt">
         <a-box position='0 0 0' material='opacity: 0.5; color: yellow;'></a-box>
       </a-marker>
-	    <a-marker preset="area" id="two" url="markers/celtich.patt, markers/celticu.patt, markers/likeaboss.patt">
+	  <a-marker preset="area" id="two" url="markers/celtich.patt, markers/celticu.patt, markers/likeaboss.patt">
         <a-box position='0 0 0' material='opacity: 0.5; color: green;'></a-box>
       </a-marker>
+      <a-marker preset="area" id="three" url="markers/pattern-marker1.patt, markers/pattern-marker2.patt, markers/pattern-marker3.patt, markers/pattern-marker4.patt">
+        <a-box position='0 0 0' material='opacity: 0.5; color: blue;'></a-box>
+      </a-marker>
       <a-entity camera></a-entity>
-	  </a-scene>
+    </a-scene>
     <div class="glitchButton" style="position:fixed;top:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script>
   </body>
