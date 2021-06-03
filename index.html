@@ -10,25 +10,73 @@
     
     <body style="margin : 0px; overflow: hidden;">
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+            
 
-            <!-- Custom marker: letters -->
-            <a-marker preset="custom" url="markers/pattern-marker_a.patt">
+
+            <!-- Custom marker: letter in combination -->
+            <a-marker preset="pattern" url="markers/pattern-lettera.patt">
                 <a-box position="0 0.5 0"  material="opacity: 0.75; color: red;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
                 </a-box>
             </a-marker>
-            <a-marker preset="custom" url="markers/pattern-marker_b.patt">
+            <a-marker preset="pattern" url="markers/pattern-letterb.patt">
                 <a-box position="0 0.5 0"  material="opacity: 0.75; color: green;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
                 </a-box>
             </a-marker>
-            <a-marker preset="custom" url="markers/pattern-marker_c.patt">
+            <a-marker preset="pattern" url="markers/pattern-letterc.patt">
                 <a-box position="0 0.5 0"  material="opacity: 0.75; color: blue;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
                 </a-box>
             </a-marker>
-            <a-marker preset="custom" url="markers/pattern-marker_d.patt">
+            <a-marker preset="pattern" url="markers/pattern-letterd.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: yellow;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+
+
+            <!-- Custom marker: numbers -->
+            <a-marker preset="pattern" url="markers/pattern-marker1.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: red;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker2.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: green;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker3.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: blue;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker4.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: yellow;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+
+
+            <!-- Custom marker: letters -->
+            <a-marker preset="pattern" url="markers/pattern-marker_a.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: red;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker_b.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: green;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker_c.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: blue;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+            <a-marker preset="pattern" url="markers/pattern-marker_d.patt">
                 <a-box position="0 0.5 0"  material="opacity: 0.75; color: yellow;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
                 </a-box>
