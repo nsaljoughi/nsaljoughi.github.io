@@ -5464,8 +5464,6 @@ ARjs.Context.prototype._initArtoolkit = function(onCompleted){
 			'4x4'		: artoolkit.AR_MATRIX_CODE_4x4,
 			'4x4_BCH_13_9_3': artoolkit.AR_MATRIX_CODE_4x4_BCH_13_9_3,
 			'4x4_BCH_13_5_5': artoolkit.AR_MATRIX_CODE_4x4_BCH_13_5_5,
-            '5x5_BCH_22_7_7': artoolkit.AR_MATRIX_CODE_5x5_BCH_22_7_7,
-            '5x5_BCH_22_12_5': artoolkit.AR_MATRIX_CODE_5x5_BCH_22_12_5,
 		}
 		var matrixCodeType = matrixCodeTypes[_this.parameters.matrixCodeType]
 		console.assert(matrixCodeType !== undefined)
