@@ -11,6 +11,7 @@
     <script src="areas/area1.js"></script>
     <script src="areas/area2.js"></script>
     <script src="areas/area3.js"></script>
+    <script src="areas/area4.js"></script>
   </head>  
   <body>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; areaLearnerUrl: learner.html'>
@@ -22,6 +23,9 @@
       </a-marker>
       <a-marker preset="area" id="three" url="markers/pattern-marker1.patt, markers/pattern-marker2.patt, markers/pattern-marker3.patt, markers/pattern-marker4.patt">
         <a-box position='0 0 0' material='opacity: 0.5; color: blue;'></a-box>
+      </a-marker>
+      <a-marker preset="area" id="four">
+        <a-box position='0 0 0' material='opacity: 0.5; color: red;'></a-box>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
