@@ -4,7 +4,7 @@ var fourMarker = {
 			"createdBy": "Me",
 			"createdAt": "2021-06-08"
 		},
-		"trackingBackend": "artoolkit",
+		"trackingBackend": "aruco",
 		"subMarkersControls": [
 			{
 				"parameters": {
