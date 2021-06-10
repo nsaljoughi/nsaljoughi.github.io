@@ -1,1 +1,37 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  
+    
+    <body style="margin : 0px; overflow: hidden;">
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_5_5;">
+            
 
+            <!-- Barcode markers -->
+            <a-marker type="barcode" value="1">
+                <!-- Print boxes and a text on them --> 
+                <a-box position="0.0 0.5 0.0" material="opacity: 0.75; color: red;">
+                	<a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+
+
+            <!-- Custom marker: letter in combination -->
+            <a-marker type="pattern" url="markers/likeaboss.patt">
+                <a-box position="0 0.5 0"  material="opacity: 0.75; color: red;">
+            	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;"></a-entity>
+                </a-box>
+            </a-marker>
+
+            <!-- Camera -->
+            <a-entity camera></a-entity>
+
+        </a-scene>
+    </body>
+</html>
