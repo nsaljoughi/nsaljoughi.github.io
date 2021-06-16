@@ -80,4 +80,4 @@ var fiveMarker = {
 	]
 }
 
-	localStorage.setItem("fiveMarkerFile", JSON.stringify(fourMarker));
+	localStorage.setItem("fiveMarkerFile", JSON.stringify(fiveMarker));
