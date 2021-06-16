@@ -79,3 +79,5 @@ var fiveMarker = {
 		}
 	]
 }
+
+	localStorage.setItem("fiveMarkerFile", JSON.stringify(fourMarker));
