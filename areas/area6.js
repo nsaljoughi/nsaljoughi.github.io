@@ -103,3 +103,5 @@ var sixMarker = {
 		}
 	]
 }
+
+	localStorage.setItem("sixMarkerFile", JSON.stringify(sixMarker));
