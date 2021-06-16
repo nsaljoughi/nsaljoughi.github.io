@@ -1,4 +1,4 @@
-{
+var fiveMarker = {
 	"meta": {
 		"createdBy": "Area Learning - AR.js 1.7.2",
 		"createdAt": "2021-06-16T12:21:10.972Z"
