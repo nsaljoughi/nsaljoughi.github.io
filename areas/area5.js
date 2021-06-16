@@ -8,7 +8,7 @@ var fiveMarker = {
 		{
 			"parameters": {
 				"type": "pattern",
-				"patternUrl": "celtich.patt"
+				"patternUrl": "markers/celtich.patt"
 			},
 			"poseMatrix": [
 				1,
@@ -32,7 +32,7 @@ var fiveMarker = {
 		{
 			"parameters": {
 				"type": "pattern",
-				"patternUrl": " celticu.patt"
+				"patternUrl": "markers/celticu.patt"
 			},
 			"poseMatrix": [
 				0.9978379531595489,
@@ -56,7 +56,7 @@ var fiveMarker = {
 		{
 			"parameters": {
 				"type": "pattern",
-				"patternUrl": " likeaboss.patt"
+				"patternUrl": "markers/likeaboss.patt"
 			},
 			"poseMatrix": [
 				0.9964379837604822,
