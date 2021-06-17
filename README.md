@@ -2,8 +2,10 @@
 This project is based on [AR.js](https://github.com/AR-js-org) and aims at developing an augmented reality website that utilizes multiple groups of markers.
 
 ## Structure of the repo
-+ **print/**          groups of markers used in this demo ready for printing
++ **areas/**          files containing learnt parameters of markers' groups
++ **indices/**        other index.html scripts
 + **markers/**        files .patt of markers used in this demo
++ **print/**          groups of markers used in this demo ready for printing
 
 ## Testing
 Simply go to https://nsaljoughi.github.io :)
