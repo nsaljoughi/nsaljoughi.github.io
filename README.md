@@ -1,11 +1,9 @@
-# Augmented reality website based on AR-js with multiple groups of markers
-This project is based on [AR.js](https://github.com/AR-js-org) and aims at developing an augmented reality website that utilizes multiple groups of markers.
+# PAMA - Plant 4.0 AR
+Test repository to verify communication between the Plant 4.0 app and the iframe containing the AR application
 
-## Structure of the repo
-+ **areas/**          files containing learnt parameters of markers' groups
-+ **indices/**        other index.html scripts
-+ **markers/**        files .patt of markers used in this demo
-+ **print/**          groups of markers used in this demo ready for printing
+## Requirements
+For this demo we use [this barcode](https://github.com/nicolocarpignoli/artoolkit-barcode-markers-collection/blob/master/3x3/3.png)
+You need to download and print it.
 
-## Testing
-Simply go to https://nsaljoughi.github.io :)
+## Demo
+Open the index.html in a browser, frame the barcode with the camera, click on the model or on the parent buttons. 
