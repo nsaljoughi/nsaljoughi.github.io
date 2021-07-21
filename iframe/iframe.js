@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   AFRAME.registerComponent("grouphandler2", {
     init: function () {
-      const animatedMarker6 = document.querySelector("#six");      
+      const animatedMarker6 = document.querySelector("#one");      
       const aEntity6 = document.querySelector("#box6");
 
       animatedMarker6.addEventListener("click", function (ev, target) {
