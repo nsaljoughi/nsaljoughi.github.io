@@ -8,6 +8,34 @@ window.onmessage = function (e) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  AFRAME.registerComponent("grouphandler1", {
+    init: function () {
+      const animatedMarker5 = document.querySelector("#five");      
+      const aEntity5 = document.querySelector("#box5");
+
+      animatedMarker5.addEventListener("click", function (ev, target) {
+        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+        if (aEntity5 && intersectedElement === aEntity5) {
+          window.top.postMessage("click", "*");
+          alert("Clicked marker group 5!")
+        }
+      });
+    },
+  });
+  AFRAME.registerComponent("grouphandler2", {
+    init: function () {
+      const animatedMarker6 = document.querySelector("#six");      
+      const aEntity6 = document.querySelector("#box6");
+
+      animatedMarker6.addEventListener("click", function (ev, target) {
+        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+        if (aEntity6 && intersectedElement === aEntity6) {
+          window.top.postMessage("click", "*");
+          alert("Clicked marker group 6!")
+        }
+      });
+    },
+  });
   AFRAME.registerComponent("markerhandler1", {
     init: function () {
       const animatedMarker1 = document.querySelector("#animated-marker1");      
