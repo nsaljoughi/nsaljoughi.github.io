@@ -11,7 +11,8 @@
     <body>
         <a-scene
             embedded
-            arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best; maxDetectionRate: 60; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'
+            renderer='antialias: true; alpha: true; precision: medium;'>
             <a-assets>
                 <a-asset-item
                     id="animated-asset"
@@ -53,7 +54,9 @@
                 cursor="rayOrigin: mouse"
                 id="animated-marker1"
                 type="barcode" 
-                value="1">
+                value="1"
+                smoothCount=0 
+                smoothTolerance=0.0001>
                 <a-box id="box1" position="0.0 0.5 0.0" material="opacity: 0.75; color: red;">
                     <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;">
                     </a-entity>
@@ -65,7 +68,9 @@
                 cursor="rayOrigin: mouse"
                 id="animated-marker2"
                 type="barcode"
-                value="2">
+                value="2"
+                smoothCount=0 
+                smoothTolerance=0.0001>
                 <a-box id="box2" position="0 0.5 0"  material="opacity: 0.75; color: green;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;">
                     </a-entity>
@@ -77,7 +82,9 @@
                 cursor="rayOrigin: mouse"
                 id="animated-marker3"
                 type="barcode" 
-                value="3">
+                value="3"
+                smoothCount=0 
+                smoothTolerance=0.0001>
                 <a-box id="box3" position="0 0.5 0"  material="opacity: 0.75; color: blue;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
                     </a-entity>
@@ -89,7 +96,9 @@
                 cursor="rayOrigin: mouse"
                 id="animated-marker4"
                 type="barcode" 
-                value="4">
+                value="4"
+                smoothCount=0 
+                smoothTolerance=0.0001>
                 <a-box id="box4" position="0 0.5 0"  material="opacity: 0.75; color: yellow;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
                     </a-entity>
