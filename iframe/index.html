@@ -18,7 +18,8 @@
             animatedMarker.addEventListener('click', function (ev, target) {
                 const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
                 if (aEntity && intersectedElement === aEntity && animatedMarker.object3D.visible == true) {
-                    console.log(id)
+                    console.log(id);
+                    alert('Marker ' + id)
                 }
                 else {
                 }
