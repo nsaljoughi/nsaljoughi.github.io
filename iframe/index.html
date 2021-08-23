@@ -36,37 +36,35 @@
 
             <!-- Barcode markers -->
             <a-marker
-                cursor="rayOrigin: mouse"
+                cursor="fuse: true; fuseTimeout: 0"
                 id="marker_1"
                 type="barcode" 
-emitevents="true"
+                emitevents="true"
                 value="1">
                 <!-- Print boxes and a text on them --> 
-                <a-box id="quest_1" 
- click-handler="1"position="0.0 0.5 0.0" material="opacity: 0.75; color: red;">
+                <a-box id="quest_1" click-handler="1" position="0.0 0.5 0.0" material="opacity: 0.75; color: red;">
                     <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;">
                     </a-entity>
                 </a-box>
             </a-marker>
 
             <a-marker
-                cursor="rayOrigin: mouse"
+                cursor="fuse: true; fuseTimeout: 0"
                 id="marker_2"
                 type="barcode"
-emitevents="true"
+                emitevents="true"
                 value="2">
-                <a-box id="quest_2" 
-click-handler="2" position="0 0.5 0"  material="opacity: 0.75; color: green;">
+                <a-box id="quest_2" click-handler="2" position="0 0.5 0"  material="opacity: 0.75; color: green;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;">
                     </a-entity>
                 </a-box>
             </a-marker>
 
             <a-marker
-                cursor="rayOrigin: mouse"
+                cursor="fuse: true; fuseTimeout: 0"
                 id="marker_3"
                 type="barcode"
-emitevents="true" 
+                emitevents="true" 
                 value="3">
                 <!-- Print boxes and a text on them --> 
                 <a-box id="quest_3" click-handler="3" position="0.0 0.5 0.0" material="opacity: 0.75; color: yellow;">
@@ -76,12 +74,12 @@ emitevents="true"
             </a-marker>
 
             <a-marker
-                cursor="rayOrigin: mouse"
+                cursor="fuse: true; fuseTimeout: 0"
                 id="marker_4"
                 type="barcode"
-emitevents="true"
+                emitevents="true"
                 value="4">
-                <a-box id="quest_4" click-handler="4"  position="0 0.5 0"  material="opacity: 0.75; color: blue;">
+                <a-box id="quest_4" click-handler="4" position="0 0.5 0"  material="opacity: 0.75; color: blue;">
             	    <a-entity rotation="-90 0 0" position="1 0.55 -0.25" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
                     </a-entity>
                 </a-box>
