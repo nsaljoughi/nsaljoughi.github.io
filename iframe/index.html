@@ -8,32 +8,14 @@
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script> 
-<script>  
-    AFRAME.registerComponent('click-handler', {
-        init: function () {
-            const id =  this.el.id.match(/\d+$/)[0];
-            const animatedMarker = document.querySelector(`#marker_${id}`);
-            const aEntity = document.querySelector(`#quest_${id}`);
-
-            animatedMarker.addEventListener('click', function (ev, target) {
-                const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-                if (aEntity && intersectedElement === aEntity && animatedMarker.object3D.visible == true) {
-                    console.log(id);
-                    alert('Marker ' + id)
-                }
-                else {
-                }
-            });
-        }
-    });
-
-</script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="iframe.js"></script>
   </head>
     <body>
         <a-scene
             embedded
             arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
 
             <!-- Barcode markers -->
             <a-marker
@@ -46,11 +28,9 @@
                 smoothCount="10"
                 smoothTolerance="0.01"
                 smoothThreshold="2">
-                <!-- Print windows and a text on them --> 
-                <a-entity geometry="primitive: plane" id="quest_1" click-handler="1" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
+                <a-image src="Archivio/box-checked.svg" id="quest_1" click-handler="1" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
+                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;">
+                </a-image>
             </a-marker>
 
             <a-marker
@@ -63,10 +43,9 @@
                 smoothCount="10"
                 smoothTolerance="0.01"
                 smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_2" click-handler="2" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
+                <a-image src="Archivio/box-checked.svg" id="quest_2" click-handler="2" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
+                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;">
+                </a-image>
             </a-marker>
 
             <a-marker
@@ -79,10 +58,9 @@
                 smoothCount="10"
                 smoothTolerance="0.01"
                 smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_3" click-handler="3" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #3 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
+                <a-image src="Archivio/box-checked.svg" id="quest_3" click-handler="3" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
+                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #3 \n INFO; color:black;">
+                </a-image>
             </a-marker>
 
             <a-marker
@@ -95,10 +73,9 @@
                 smoothCount="10"
                 smoothTolerance="0.01"
                 smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_4" click-handler="4" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
+                <a-image src="Archivio/box-checked.svg" id="quest_4" click-handler="4" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
+                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
+                </a-image>
             </a-marker>
 
             <a-marker

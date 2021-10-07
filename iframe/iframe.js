@@ -1,95 +1,76 @@
-window.onmessage = function (e) {
-  const aEntity = document.querySelector("#box1");
-  if (aEntity) {
-    const scale = aEntity.getAttribute("scale");
-    Object.keys(scale).forEach((key) => (scale[key] = scale[key] + e.data));
-    aEntity.setAttribute("scale", scale);
-  }
+// Initialize src of images
+window.onload = function () { 
+    console.log("Hi there");
+    for (let id = 1; id < 10; id++) {
+        let image = document.querySelector(`#quest_${id}`);
+        console.log(image.src);
+        image.src = "Archivio/box-checked.svg";
+        console.log(image.src);
+    }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  AFRAME.registerComponent("grouphandler1", {
-    init: function () {
-      const animatedMarker5 = document.querySelector("#five");      
-      const aEntity5 = document.querySelector("#box5");
+window.addEventListener('message', function (ev) {
+    const datum = (ev.data)
+    if (ev.data.msg && ev.data.msg === 'Message') {
+        console.log("Message from outside the iframe!!");
+        console.log(datum)
+    }
+    for (let i = 1; i < 10; i++) {
+        const id = i;
+        const animatedMarker = document.querySelector(`#marker_${id}`);
+        const aEntity = document.querySelector(`#quest_${id}`);
+        const stats = datum[id]
 
-      animatedMarker5.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity5 && intersectedElement === aEntity5) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker group 5!")
+        // Now, handle source according to stat
+        if (stats['stat'] == '1') {
+            document.querySelector(`#quest_${id}`).setAttribute('src', 'Archivio/box-checked.svg');
+            document.querySelector(`#quest_${id}`).src = 'Archivio/box-checked.svg';
         }
-      });
-    },
-  });
-  AFRAME.registerComponent("grouphandler2", {
-    init: function () {
-      const animatedMarker6 = document.querySelector("#seven");      
-      const aEntity6 = document.querySelector("#box6");
+        else if (stats['stat'] == '0') {
+            document.querySelector(`#quest_${id}`).setAttribute('src', 'Archivio/box-unchecked.svg');
+            document.querySelector(`#quest_${id}`).src = 'Archivio/box-unchecked.svg';
+        }
 
-      animatedMarker6.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity6 && intersectedElement === aEntity6) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker group 6!")
+        // Hide/show according to visib
+        if (stats['visib'] == '1') {
+            document.querySelector(`#quest_${id}`).setAttribute('visible', true);
+            document.querySelector(`#quest_${id}`).visible = true;
         }
-      });
-    },
-  });
-  AFRAME.registerComponent("markerhandler1", {
-    init: function () {
-      const animatedMarker1 = document.querySelector("#animated-marker1");      
-      const aEntity1 = document.querySelector("#box1");
+        else if (stats['visib'] == '0') {
+            document.querySelector(`#quest_${id}`).setAttribute('visible', false);
+            document.querySelector(`#quest_${id}`).visible = false;
+        }
+    }
+}, false);
 
-      animatedMarker1.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity1 && intersectedElement === aEntity1) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker 1!")
-        }
-      });
-    },
-  });
-  AFRAME.registerComponent("markerhandler2", {
-    init: function () {
-      const animatedMarker2 = document.querySelector("#animated-marker2");      
-      const aEntity2 = document.querySelector("#box2");
 
-      animatedMarker2.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity2 && intersectedElement === aEntity2) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker 2!")
-        }
-      });
-    },
-  });
-  AFRAME.registerComponent("markerhandler3", {
+AFRAME.registerComponent('click-handler', {
     init: function () {
-      const animatedMarker3 = document.querySelector("#animated-marker3");      
-      const aEntity3 = document.querySelector("#box3");
-
-      animatedMarker3.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity3 && intersectedElement === aEntity3) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker 3!")
-        }
-      });
-    },
-  });
-  AFRAME.registerComponent("markerhandler4", {
-    init: function () {
-      const animatedMarker4 = document.querySelector("#animated-marker4");      
-      const aEntity4 = document.querySelector("#box4");
-
-      animatedMarker4.addEventListener("click", function (ev, target) {
-        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        if (aEntity4 && intersectedElement === aEntity4) {
-          window.top.postMessage("click", "*");
-          alert("Clicked marker 4!")
-        }
-      });
-    },
-  });
+        const id =  this.el.id.match(/\d+$/)[0];
+        const animatedMarker = document.querySelector(`#marker_${id}`);
+        const aEntity = document.querySelector(`#quest_${id}`);
+        
+        animatedMarker.addEventListener('click', function (ev, target) {
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntity && intersectedElement === aEntity && animatedMarker.object3D.visible == true) {
+                console.log(id);
+                window.top.postMessage({
+                    'id' : id
+                }, "*");
+                console.log(aEntity.src);
+                if (document.querySelector(`#quest_${id}`).src === 'Archivio/box-checked.svg') {
+                    document.querySelector(`#quest_${id}`).setAttribute('src', 'Archivio/box-unchecked.svg');
+                    document.querySelector(`#quest_${id}`).src = 'Archivio/box-unchecked.svg';
+                    console.log(document.querySelector(`#quest_${id}`).src);
+                }
+                else {
+                    document.querySelector(`#quest_${id}`).setAttribute('src', 'Archivio/box-checked.svg');
+                    document.querySelector(`#quest_${id}`).src = 'Archivio/box-checked.svg';
+                    console.log(document.querySelector(`#quest_${id}`).src)
+                }
+            }
+            else {
+            }
+        });
+    }
 });
