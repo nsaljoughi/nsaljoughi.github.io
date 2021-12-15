@@ -1,7 +1,7 @@
 // Initialize src of images
 window.onload = function () { 
     console.log("Hi there");
-    for (let id = 1; id < 10; id++) {
+    for (let id = 1; id < num_markers; id++) {
         let image = document.querySelector(`#quest_${id}`);
         console.log(image.src);
         image.src = "Archivio/box-checked.svg";
@@ -15,7 +15,7 @@ window.addEventListener('message', function (ev) {
         console.log("Message from outside the iframe!!");
         console.log(datum)
     }
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < num_markers; i++) {
         const id = i;
         const animatedMarker = document.querySelector(`#marker_${id}`);
         const aEntity = document.querySelector(`#quest_${id}`);
@@ -47,8 +47,8 @@ window.addEventListener('message', function (ev) {
 AFRAME.registerComponent('click-handler', {
     init: function () {
         const id =  this.el.id.match(/\d+$/)[0];
-        const animatedMarker = document.querySelector(`#marker_${id}`);
         const aEntity = document.querySelector(`#quest_${id}`);
+        const animatedMarker = aEntity.parentNode;
         
         animatedMarker.addEventListener('click', function (ev, target) {
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;

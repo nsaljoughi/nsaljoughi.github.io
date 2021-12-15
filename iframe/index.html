@@ -10,6 +10,8 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="iframe.js"></script>
+    <!-- Impostare il numero di marker che si vuole utilizzare-->
+    <script> const num_markers=3 </script>
   </head>
     <body>
         <a-scene
@@ -17,165 +19,87 @@
             embedded
             arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
-
             <!-- Barcode markers -->
-            <a-marker
+            <a-marker 
                 cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_1"
                 type="barcode" 
                 emitevents="true"
                 value="1"
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-image src="Archivio/box-checked.svg" id="quest_1" click-handler="1" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
-                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #1 \n INFO; color:black;">
+                smoothThreshold="2"
+                >
+                <a-image 
+                    src="Archivio/box-checked.svg"
+                    id="quest_1" 
+                    click-handler="1" 
+                    rotation="0 0 0" 
+                    position="0.0 1.5 0.0" 
+                    width="1.9" 
+                    height="0.5" 
+                    look-at="[camera]"
+                    >
+                    <a-entity 
+                        rotation="0 0 0" 
+                        position="0.4 0 0" 
+                        scale="2 2 2" 
+                        text="value: Sensor #1 \n INFO; color:black; zOffset:1;"
+                        >
+                </a-image>
+                <a-image 
+                    src="Archivio/box-checked.svg" 
+                    id="quest_2" 
+                    click-handler="2" 
+                    rotation="0 0 0" 
+                    position="1.0 1.5 1.0" 
+                    width="1.9" 
+                    height="0.5" 
+                    look-at="[camera]"
+                    >
+                    <a-entity 
+                        rotation="0 0 0" 
+                        position="0.4 0 0" 
+                        scale="2 2 2" 
+                        text="value: Sensor #2 \n INFO; color:black; zOffset:1;"
+                        >
                 </a-image>
             </a-marker>
 
             <a-marker
                 cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_2"
                 type="barcode"
                 emitevents="true"
                 value="2"
                 smooth="true"
                 smoothCount="10"
                 smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-image src="Archivio/box-checked.svg" id="quest_2" click-handler="2" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
-                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #2 \n INFO; color:black;">
+                smoothThreshold="2"
+                >
+                <a-image 
+                    src="Archivio/box-checked.svg" 
+                    id="quest_3" 
+                    click-handler="3" 
+                    rotation="0 0 0" 
+                    position="0.0 1.5 0.0" 
+                    width="1.9" 
+                    height="0.5" 
+                    look-at="[camera]"
+                    >
+                    <a-entity 
+                        rotation="0 0 0" 
+                        position="0.4 0 0" 
+                        scale="2 2 2" 
+                        text="value: Sensor #3 \n INFO; color:black; zOffset:1;"
+                        >
                 </a-image>
             </a-marker>
 
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_3"
-                type="barcode"
-                emitevents="true" 
-                value="3"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-image src="Archivio/box-checked.svg" id="quest_3" click-handler="3" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
-                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="1 1 1" text="value: Sensor #3 \n INFO; color:black; opacity:1.0; zOffset:1">
-                </a-image>
-            </a-marker>
+            <a-entity 
+                camera
+                > 
+            </a-entity>
 
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_4"
-                type="barcode"
-                emitevents="true"
-                value="4"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-image src="Archivio/box-checked.svg" id="quest_4" click-handler="4" rotation="0 0 0" position="0.0 1.5 0.0" width="1.9" height="0.5" look-at="[camera]">
-                    <a-entity rotation="0 0 0" position="0.8 0 0.1" scale="3 3 3" text="value: Sensor #4 \n INFO; color:black;">
-                </a-image>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_5"
-                type="barcode"
-                emitevents="true"
-                value="5"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_5" click-handler="5" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #5 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_6"
-                type="barcode"
-                emitevents="true"
-                value="6"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_6" click-handler="6" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #6 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_7"
-                type="barcode"
-                emitevents="true"
-                value="7"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_7" click-handler="7" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #7 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_8"
-                type="barcode"
-                emitevents="true"
-                value="8"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_8" click-handler="8" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #8 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_9"
-                type="barcode"
-                emitevents="true"
-                value="9"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_9" click-handler="9" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #9 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-
-            <a-marker
-                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 0;"
-                id="marker_10"
-                type="barcode"
-                emitevents="true"
-                value="10"
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="2">
-                <a-entity geometry="primitive: plane" id="quest_10" click-handler="10" rotation="-90 0 0" position="0.0 1.5 0.0" color="#CCC" height="5" width="5" look-at="[camera]"> 
-            	      <a-entity rotation="0 0 0" position="1 0 0" scale="3 3 3" text="value: Sensor #10 \n INFO; color:black;">
-                    </a-entity>
-                </a-entity>
-            </a-marker>
-          
-            <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
